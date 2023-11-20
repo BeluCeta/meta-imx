@@ -1,5 +1,12 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
+INI_UNCOMMENT_ASSIGNMENTS:append:mx9-nxp-bsp = " \
+    repaint-window=16 \
+"
+INI_UNCOMMENT_ASSIGNMENTS:append:mx93-nxp-bsp = " \
+    use-g2d=1 \
+"
+
 update_file() {
     if ! grep -q "$1" $3; then
         bbfatal $1 not found in $3
